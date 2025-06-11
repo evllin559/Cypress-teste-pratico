@@ -34,16 +34,11 @@ it('Deve adicionar um produto e depois ir para a página do carrinho', () => {
   // 1. Visitar a página inicial da Kabum
   cy.visit('https://www.kabum.com.br/');
 
-  // 2. Clicar em um produto no carrossel (swiper-slide) para ir para a página de detalhes do produto.
-  // O seletor '.swiper-slide-next > .p-\[2px\]' é volátil.
-  // Se o elemento clicável for um link ou um card de produto, tente algo mais específico.
-  // Exemplo comum: pegar o primeiro card de produto visível no carrossel e clicar no link ou no card inteiro.
-  cy.get('.swiper-slide-next').first().click(); // Tenta clicar no primeiro slide que é o próximo
-  // OU cy.get('.product-card-link').first().click(); // Se houver um link dentro do slide para o produto
-
+ 
+  cy.get('.swiper-slide-next').first().click(); 
   // 3. Aguardar a página do produto carregar.
-  cy.url().should('include', '/produto/'); // Confirma que a URL mudou para a página do produto
-  cy.wait(1000); // Pequena espera, ajuste se necessário, ou use uma asserção de visibilidade de um elemento na página do produto.
+  cy.url().should('include', '/produto/'); 
+  cy.wait(1000); 
 
 cy.visit('https://www.kabum.com.br/carrinho');
 cy.url().should('contains', 'https://www.kabum.com.br/');
