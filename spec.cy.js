@@ -21,7 +21,7 @@ describe('Login Kabum Evlin', () => {
     cy.contains('button', 'Entendi').click({ force: true });
     cy.get('#removerTodosProdutos').click();
      cy.contains('Span', 'Sim').click({ force: true });
-     cy.contains('Produto Removido do Carrinho', { timeout: 10000 }).should('be.visible');
+     cy.contains('O seu Carrinho está vazio', { timeout: 10000 }).should('be.visible');
   });
 
   
